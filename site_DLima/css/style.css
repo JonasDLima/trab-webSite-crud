@@ -1,0 +1,67 @@
+.logo {
+    width: 68px;
+}
+
+.conteudo {
+    background: #ffd54f;
+}
+
+.form-login {
+    padding-left: 17%;
+    margin: 0;
+    width: 150%;
+    padding-bottom: 100px;
+}
+
+.form-login-content {
+    height: 400px;
+    margin-top: 2%;
+}
+
+.form-login-data {
+    text-align: center;
+}
+
+.form-login-data .row{
+    margin-left: 32%;
+}
+
+.subButton {
+    margin-left: 42%;
+}
+
+.form-produto {
+    padding-left: 17%;
+    margin: 0;
+    width: 150%;
+    padding-bottom: 100px;
+}
+
+.form-produto-content {
+    height: 400px;
+    margin-top: 2%;
+}
+
+.form-produto-data {
+    text-align: center;
+}
+
+.form-produto-data .row{
+    margin-left: 32%;
+}
+
+.form-entregador {
+    padding-left: 17%;
+    margin: 0;
+    width: 150%;
+    padding-bottom: 50%;
+}
+
+.form-entregador-content {
+    height: 400px;
+    margin-top: 2%;
+}
+
+.form-entregador-data {
+    text-align: center;
+}
