@@ -40,10 +40,10 @@
                         </div>
                     </div>
                     <div class="card-action">
-                        <button class="btn waves-effect waves-light subButton" type="submit" name="action">Cadastrar
+                        <button class="btn waves-effect waves-light" type="submit" name="btn-cliente"> Cadastrar
                             <i class="material-icons right">send</i>
                         </button>
-                    </div>
+                        <a href="consultaClientes.php" class="btn green"> Lista de Fornecedores
                 </div>
             </div>
         </div>
