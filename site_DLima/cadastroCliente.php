@@ -7,7 +7,7 @@
                     <div class="card-content white-text form-entregador-data">
                         <span class="card-title" style="color: #000 !important;">Cadastro de Cliente</span>
                         <div class="row">
-                            <form class="col s12" action="site_DLima/backend/clientesDAO.php" method="POST">
+                            <form class="col s12" action="backend/clientesDAO.php" method="POST">
                                 <div class="row">
                                     <div class="input-field col s6">
                                         <input placeholder="Nome" id="first_name" type="text" class="validate">
@@ -39,14 +39,14 @@
                                         </label>
                                       </div>
                                 </div>
+                                <div class="card-action">
+                                    <button class="btn waves-effect waves-light" name="btn-cliente"> Cadastrar
+                                        <i class="material-icons right">send</i>
+                                    </button>
+                                    <a href="consultaClientes.php" class="btn green"> Lista de Clientes </a>
+                                </div>
                             </form>
                         </div>
-                    </div>
-                    <div class="card-action">
-                        <button class="btn waves-effect waves-light" type="submit" name="btn-cliente"> Cadastrar
-                            <i class="material-icons right">send</i>
-                        </button>
-                        <a href="consultaClientes.php" class="btn green"> Lista de Clientes </a>
                     </div>
                 </div>
             </div>
