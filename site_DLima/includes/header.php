@@ -19,7 +19,7 @@
                       <img class="logo" src="imagens/logo.jpg" alt="">
                   </a>
                   <ul id="navbar-items" class="right hide-on-med-and-down">
-                      <li><a href="#">Cardapio</a></li>
+                      <li><a href="C:\Users\DLima\Downloads\usbwebserver\root\trab-webSite-crud\site_DLima\cardapio.php">Cardapio</a></li>
                       <!-- Dropdown Trigger -->
                       <li>
                           <a class="dropdown-trigger" data-target="dropdown-menu" href="#">

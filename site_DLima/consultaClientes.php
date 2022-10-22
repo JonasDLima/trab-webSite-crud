@@ -1,75 +1,79 @@
 <?php
-    include_once 'includes/header.php';
+  include_once 'backend/db_connection.php';
+
+  include_once 'includes/header.php';
+
+  // include_once 'mensagem.php';
 ?>
         <div class="form-default">
           <div class="col s12 m6">
               <div class="card amber lighten-3 content-border-default">
-                <div class="card-content white-text form-login-data">
-                    <span class="card-title" style="color: #000 !important;">Listagem de Clientes</span>
+                <div class="card-content black-text form-login-data">
+                    <span class="card-title">Listagem de Clientes</span>
                     <table class="responsive-table highlight">
                     <thead>
                       <tr>
-                          <th>Name</th>
+                          <th>Nome</th>
                           <th>Telefone</th>
                           <th>Endereço</th>
                       </tr>
                     </thead>
 
                     <tbody>
+                      <?php
+                      $sql="SELECT * FROM clientes";
+                      $resultado= mysqli_query($connect, $sql);
+
+                      if (mysqli_num_rows($resultado)>0) :
+                        while($dados= mysqli_fetch_array($resultado)):
+                      ?>
                       <tr>
-                        <td>Alvin de Souza Neves</td>
-                        <td>21989898989</td>
-                        <td>Seila, Rua dos Bobos, 0</td>
-                        <td><a href="" class="btn-floating orange"><i class="material-icons">edit</i></a></td>
-                        <td><a href="" class="btn-floating red"><i class="material-icons">delete</i></a></td>
+                        <td><?php echo $dados['nome'];?></td>
+                        <td><?php echo $dados['telefone'];?></td>
+                        <td><?php echo $dados['endereco'];?></td>
+                        <td><a href="editarCliente.php?id=<?php echo $dados['idCliente'];?>" class="btn-floating orange"><i class="material-icons">edit</i></a></td>
+                        <td><a href="#modal<?php echo $dados['idCliente'];?>" class="btn-floating red"><i class="material-icons">delete</i></a></td>
+
+
+                        <!-- Modal delete -->
+                          <div id="modal<?php echo $dados['idCliente'];?>" class="modal">
+                            <div class="modal-content">
+                              <h3>Atenção!</h3>
+                              <p>Deseja excluir esse cliente?</p>
+                            </div>
+                            <div class="modal-footer">
+                              <form action="backend/deletarClientesDAO.php" method="POST">
+                                <input type="hidden" name="id" value="<?php echo $dados['idCliente'];?>">
+                                <button type="submit" name="btn-deletar" class="btn red">Sim, quero deletar</button>
+                                <a href="#!" class="modal-clase waves-effect waves-green btn-flat">Cancelar</a>
+                              </form>
+                            </div>
+                          </div>
                       </tr>
-                      <tr>
-                        <td>Alan da Silva</td>
-                        <td>27995253608</td>
-                        <td>Jardins, Rua do Manguesal, 309</td>
-                        <td><a href="" class="btn-floating orange"><i class="material-icons">edit</i></a></td>
-                        <td><a href="" class="btn-floating red"><i class="material-icons">delete</i></a></td>
-                      </tr>
-                      <tr>
-                        <td>Jonathan Jr. da Silva Chavier</td>
-                        <td>3199745265</td>
-                        <td>São Pedro, Buraca, 80</td>
-                        <td><a href="" class="btn-floating orange"><i class="material-icons">edit</i></a></td>
-                        <td><a href="" class="btn-floating red"><i class="material-icons">delete</i></a></td>
-                      </tr>
-                      <tr>
-                        <td>Jonathan Medeiros Brabo</td>
-                        <td>27985993609</td>
-                        <td>Morro do 4, Travesa da dificuldade, 1</td>
-                        <td><a href="" class="btn-floating orange"><i class="material-icons">edit</i></a></td>
-                        <td><a href="" class="btn-floating red"><i class="material-icons">delete</i></a></td>
-                      </tr>
-                      <tr>
-                        <td>Juquinha Fosh</td>
-                        <td>25999654526</td>
-                        <td>Boa pergunta, Zona de beozionte, 56</td>
-                        <td><a href="" class="btn-floating orange"><i class="material-icons">edit</i></a></td>
-                        <td><a href="" class="btn-floating red"><i class="material-icons">delete</i></a></td>
-                      </tr>
-                      <tr>
-                        <td>Juninho Play</td>
-                        <td>29756898368</td>
-                        <td>Nice Guy, Vida Loka, 10</td>
-                        <td><a href="" class="btn-floating orange"><i class="material-icons">edit</i></a></td>
-                        <td><a href="" class="btn-floating red"><i class="material-icons">delete</i></a></td>
-                      </tr>
+                      <?php
+                      endwhile;
+                      else: 
+                      ?>
+                        <tr>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                        </tr>
+                      <?php
+                      endif;
+                      ?>
                     </tbody>
                     </table>
-                </div>
-                <div class="card-action">
-                  <!-- <button class="btn waves-effect waves-light" type="submit" name="action">Adicionar Cliente
-                    <i class="material-icons right">send</i>
-                  </button> -->
-                  <a href="cadastroCliente.php" class="btn green"> Adicionar Cliente </a>
+                    <div class="card-action">
+                      <!-- <button class="btn waves-effect waves-light" type="submit" name="action">Adicionar Cliente
+                        <i class="material-icons right">send</i>
+                      </button> -->
+                      <a href="cadastroCliente.php" class="btn green"> Adicionar Cliente </a>
+                    </div>
                 </div>
               </div>
             </div>
         <div>
 <?php
     include_once 'includes/footer.php';
-?>      
+?>
